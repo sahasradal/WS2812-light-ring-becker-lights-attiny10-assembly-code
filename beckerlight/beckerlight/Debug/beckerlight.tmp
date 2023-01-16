@@ -1,0 +1,107 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATtiny10"</DEVICE>
+ <WORKING_DIR>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.229\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.229\avrasm\inc\tn10def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\Debug\beckerlight.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>beckerlight.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>beckerlight.map</FILE>
+  <FILE>beckerlight.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <pad1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>28</LINE></pad1>
+  <pad2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>29</LINE></pad2>
+  <reset><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>36</LINE></reset>
+  <portsetup><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>47</LINE></portsetup>
+  <LED_RESET><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>139</LINE></LED_RESET>
+  <mainloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>53</LINE></mainloop>
+  <audi1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>207</LINE></audi1>
+  <delayms><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>180</LINE></delayms>
+  <dblackout><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>275</LINE></dblackout>
+  <audi><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>288</LINE></audi>
+  <coloursend><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>379</LINE></coloursend>
+  <flasher><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>407</LINE></flasher>
+  <blackout><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>235</LINE></blackout>
+  <init_colour><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>400</LINE></init_colour>
+  <glow><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>512</LINE></glow>
+  <fade><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>431</LINE></fade>
+  <rotate><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>579</LINE></rotate>
+  <bytetx><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>112</LINE></bytetx>
+  <loop0><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>114</LINE></loop0>
+  <ten66ns><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>131</LINE></ten66ns>
+  <loop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>142</LINE></loop1>
+  <delay><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>150</LINE></delay>
+  <delay1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>159</LINE></delay1>
+  <dd><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>154</LINE></dd>
+  <ddd><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>162</LINE></ddd>
+  <ms1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>170</LINE></ms1>
+  <msloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>173</LINE></msloop>
+  <delaymsloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>182</LINE></delaymsloop>
+  <ms500><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>188</LINE></ms500>
+  <ms20><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>197</LINE></ms20>
+  <audiloop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>210</LINE></audiloop1>
+  <sendorange><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>259</LINE></sendorange>
+  <alllit><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>222</LINE></alllit>
+  <blackloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>218</LINE></blackloop>
+  <sendblack><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>247</LINE></sendblack>
+  <boloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>237</LINE></boloop>
+  <delay2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>268</LINE></delay2>
+  <ddd2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>271</LINE></ddd2>
+  <audiloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>292</LINE></audiloop>
+  <allon><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>313</LINE></allon>
+  <orangeloop><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>301</LINE></orangeloop>
+  <white><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>316</LINE></white>
+  <fadearray><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>340</LINE></fadearray>
+  <fadecalc><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>349</LINE></fadecalc>
+  <mainstep><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>351</LINE></mainstep>
+  <innercalc><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>356</LINE></innercalc>
+  <greenreg><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>367</LINE></greenreg>
+  <ent1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>359</LINE></ent1>
+  <redreg><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>370</LINE></redreg>
+  <ent2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>362</LINE></ent2>
+  <bluereg><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>373</LINE></bluereg>
+  <colourloop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>383</LINE></colourloop1>
+  <addresscolour><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>396</LINE></addresscolour>
+  <colourloop2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>387</LINE></colourloop2>
+  <colour><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>404</LINE></colour>
+  <flashloop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>410</LINE></flashloop1>
+  <flashloop2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>412</LINE></flashloop2>
+  <flashloop3><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>423</LINE></flashloop3>
+  <step><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>436</LINE></step>
+  <fadeloop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>438</LINE></fadeloop1>
+  <fadeloop2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>441</LINE></fadeloop2>
+  <innercalc1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>473</LINE></innercalc1>
+  <greenreg1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>484</LINE></greenreg1>
+  <entry1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>476</LINE></entry1>
+  <redreg1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>491</LINE></redreg1>
+  <entry2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>479</LINE></entry2>
+  <bluereg1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>498</LINE></bluereg1>
+  <exit1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>488</LINE></exit1>
+  <exit2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>495</LINE></exit2>
+  <exit3><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>502</LINE></exit3>
+  <step1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>517</LINE></step1>
+  <glowloop1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>519</LINE></glowloop1>
+  <glowloop2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>522</LINE></glowloop2>
+  <colour2><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>541</LINE></colour2>
+  <colour2pointer><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>545</LINE></colour2pointer>
+  <step_0><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>549</LINE></step_0>
+  <step_1><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>551</LINE></step_1>
+  <transferarray><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>568</LINE></transferarray>
+  <resetpointer><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>562</LINE></resetpointer>
+  <entry22><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>555</LINE></entry22>
+  <addresscalc><FILE>C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm</FILE><LINE>707</LINE></addresscalc>
+ </LABELS>
+</ASSEMBLER_INFO>

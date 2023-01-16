@@ -1,0 +1,1238 @@
+
+AVRASM ver. 2.2.7  C:\Users\Manama\Documents\Atmel Studio\7.0\beckerlight\beckerlight\main.asm Thu Jun 30 20:00:17 2022
+
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.229\avrasm\inc\tn10def.inc'
+[builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.3.229\avrasm\inc\tn10def.inc'
+                                 
+                                 ;
+                                 
+                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATtiny10.xml ************
+                                 ;*************************************************************************
+                                 ;* A P P L I C A T I O N   N O T E   F O R   T H E   A V R   F A M I L Y
+                                 ;* 
+                                 ;* Number            : AVR000
+                                 ;* File Name         : "tn10def.inc"
+                                 ;* Title             : Register/Bit Definitions for the ATtiny10
+                                 ;* Date              : 2011-02-09
+                                 ;* Version           : 2.35
+                                 ;* Support E-mail    : avr@atmel.com
+                                 ;* Target MCU        : ATtiny10
+                                 ;* 
+                                 ;* DESCRIPTION
+                                 ;* When including this file in the assembly program file, all I/O register 
+                                 ;* names and I/O register bit names appearing in the data book can be used.
+                                 ;* In addition, the six registers forming the three data pointers X, Y and 
+                                 ;* Z have been assigned names XL - ZH. Highest RAM address for Internal 
+                                 ;* SRAM is also defined 
+                                 ;* 
+                                 ;* The Register names are represented by their hexadecimal address.
+                                 ;* 
+                                 ;* The Register Bit names are represented by their bit number (0-7).
+                                 ;* 
+                                 ;* Please observe the difference in using the bit names with instructions
+                                 ;* such as "sbr"/"cbr" (set/clear bit in register) and "sbrs"/"sbrc"
+                                 ;* (skip if bit in register set/cleared). The following example illustrates
+                                 ;* this:
+                                 ;* 
+                                 ;* in    r16,PORTB             ;read PORTB latch
+                                 ;* sbr   r16,(1<<PB6)+(1<<PB5) ;set PB6 and PB5 (use masks, not bit#)
+                                 ;* out   PORTB,r16             ;output to PORTB
+                                 ;* 
+                                 ;* in    r16,TIFR              ;read the Timer Interrupt Flag Register
+                                 ;* sbrc  r16,TOV0              ;test the overflow flag (use bit#)
+                                 ;* rjmp  TOV0_is_set           ;jump if set
+                                 ;* ...                         ;otherwise do something else
+                                 ;*************************************************************************
+                                 
+                                 #ifndef _TN10DEF_INC_
+                                 #define _TN10DEF_INC_
+                                 
+                                 
+                                 #pragma partinc 0
+                                 
+                                 ; ***** SPECIFY DEVICE ***************************************************
+                                 .device ATtiny10
+                                 #pragma AVRPART ADMIN PART_NAME ATtiny10
+                                 .equ	SIGNATURE_000	= 0x1e
+                                 .equ	SIGNATURE_001	= 0x90
+                                 .equ	SIGNATURE_002	= 0x03
+                                 
+                                 #pragma AVRPART CORE CORE_VERSION AVR8L_0
+                                 
+                                 
+                                 ; ***** I/O REGISTER DEFINITIONS *****************************************
+                                 ; NOTE:
+                                 ; Definitions marked "MEMORY MAPPED"are extended I/O ports
+                                 ; and cannot be used with IN/OUT instructions
+                                 .equ	SREG	= 0x3f
+                                 .equ	SPL	= 0x3d
+                                 .equ	SPH	= 0x3e
+                                 .equ	CCP	= 0x3c
+                                 .equ	RSTFLR	= 0x3b
+                                 .equ	SMCR	= 0x3a
+                                 .equ	OSCCAL	= 0x39
+                                 .equ	CLKMSR	= 0x37
+                                 .equ	CLKPSR	= 0x36
+                                 .equ	PRR	= 0x35
+                                 .equ	VLMCSR	= 0x34
+                                 .equ	NVMCMD	= 0x33
+                                 .equ	NVMCSR	= 0x32
+                                 .equ	WDTCSR	= 0x31
+                                 .equ	GTCCR	= 0x2f
+                                 .equ	TCCR0A	= 0x2e
+                                 .equ	TCCR0B	= 0x2d
+                                 .equ	TCCR0C	= 0x2c
+                                 .equ	TIMSK0	= 0x2b
+                                 .equ	TIFR0	= 0x2a
+                                 .equ	TCNT0L	= 0x28
+                                 .equ	TCNT0H	= 0x29
+                                 .equ	OCR0AL	= 0x26
+                                 .equ	OCR0AH	= 0x27
+                                 .equ	OCR0BL	= 0x24
+                                 .equ	OCR0BH	= 0x25
+                                 .equ	ICR0L	= 0x22
+                                 .equ	ICR0H	= 0x23
+                                 .equ	ACSR	= 0x1f
+                                 .equ	ADCSRA	= 0x1d
+                                 .equ	ADCSRB	= 0x1c
+                                 .equ	ADMUX	= 0x1b
+                                 .equ	ADCL	= 0x19
+                                 .equ	DIDR0	= 0x17
+                                 .equ	EICRA	= 0x15
+                                 .equ	EIFR	= 0x14
+                                 .equ	EIMSK	= 0x13
+                                 .equ	PCICR	= 0x12
+                                 .equ	PCIFR	= 0x11
+                                 .equ	PCMSK	= 0x10
+                                 .equ	PORTCR	= 0x0c
+                                 .equ	PUEB	= 0x03
+                                 .equ	PORTB	= 0x02
+                                 .equ	DDRB	= 0x01
+                                 .equ	PINB	= 0x00
+                                 
+                                 
+                                 ; ***** BIT DEFINITIONS **************************************************
+                                 
+                                 ; ***** AD_CONVERTER *****************
+                                 ; ADMUX - The ADC multiplexer Selection Register
+                                 .equ	MUX0	= 0	; Analog Channel Selection Bits
+                                 .equ	MUX1	= 1	; Analog Channel Selection Bits
+                                 
+                                 ; ADCSRA - The ADC Control and Status register A
+                                 .equ	ADPS0	= 0	; ADC  Prescaler Select Bits
+                                 .equ	ADPS1	= 1	; ADC  Prescaler Select Bits
+                                 .equ	ADPS2	= 2	; ADC  Prescaler Select Bits
+                                 .equ	ADIE	= 3	; ADC Interrupt Enable
+                                 .equ	ADIF	= 4	; ADC Interrupt Flag
+                                 .equ	ADATE	= 5	; ADC  Auto Trigger Enable
+                                 .equ	ADSC	= 6	; ADC Start Conversion
+                                 .equ	ADEN	= 7	; ADC Enable
+                                 
+                                 ; ADCSRB - The ADC Control and Status register B
+                                 .equ	ADTS0	= 0	; ADC Auto Trigger Source bit 0
+                                 .equ	ADTS1	= 1	; ADC Auto Trigger Source bit 1
+                                 .equ	ADTS2	= 2	; ADC Auto Trigger Source bit 2
+                                 
+                                 ; ADCL - ADC Data Register
+                                 .equ	ADC0	= 0	; ADC Data Register Bit 0
+                                 .equ	ADC1	= 1	; ADC Data Register Bit 1
+                                 .equ	ADC2	= 2	; ADC Data Register Bit 2
+                                 .equ	ADC3	= 3	; ADC Data Register Bit 3
+                                 .equ	ADC4	= 4	; ADC Data Register Bit 4
+                                 .equ	ADC5	= 5	; ADC Data Register Bit 5
+                                 .equ	ADC6	= 6	; ADC Data Register Bit 6
+                                 .equ	ADC7	= 7	; ADC Data Register Bit 7
+                                 
+                                 ; DIDR0 - Digital Input Disable Register
+                                 .equ	ADC0D	= 0	; 
+                                 .equ	ADC1D	= 1	; 
+                                 .equ	ADC2D	= 2	; 
+                                 .equ	ADC3D	= 3	; 
+                                 
+                                 
+                                 ; ***** ANALOG_COMPARATOR ************
+                                 ; ACSR - Analog Comparator Control And Status Register
+                                 .equ	ACIS0	= 0	; Analog Comparator Interrupt Mode Select bit 0
+                                 .equ	ACIS1	= 1	; Analog Comparator Interrupt Mode Select bit 1
+                                 .equ	ACIC	= 2	; Analog Comparator Input Capture  Enable
+                                 .equ	ACIE	= 3	; Analog Comparator Interrupt Enable
+                                 .equ	ACI	= 4	; Analog Comparator Interrupt Flag
+                                 .equ	ACO	= 5	; Analog Compare Output
+                                 .equ	ACD	= 7	; Analog Comparator Disable
+                                 
+                                 ; DIDR0 - 
+                                 .equ	AIN0D	= 0	; AIN0 Digital Input Disable
+                                 .equ	AIN1D	= 1	; AIN1 Digital Input Disable
+                                 
+                                 
+                                 ; ***** CPU **************************
+                                 ; CCP - Configuration Change Protection
+                                 .equ	CCP0	= 0	; Configuration Change Protection bit 0
+                                 .equ	CCP1	= 1	; Configuration Change Protection bit 1
+                                 .equ	CCP2	= 2	; Configuration Change Protection bit 2
+                                 .equ	CCP3	= 3	; Configuration Change Protection bit 3
+                                 .equ	CCP4	= 4	; Configuration Change Protection bit 4
+                                 .equ	CCP5	= 5	; Configuration Change Protection bit 5
+                                 .equ	CCP6	= 6	; Configuration Change Protection bit 6
+                                 .equ	CCP7	= 7	; Configuration Change Protection bit 7
+                                 
+                                 ; SREG - Status Register
+                                 .equ	SREG_C	= 0	; Carry Flag
+                                 .equ	SREG_Z	= 1	; Zero Flag
+                                 .equ	SREG_N	= 2	; Negative Flag
+                                 .equ	SREG_V	= 3	; Two's Complement Overflow Flag
+                                 .equ	SREG_S	= 4	; Sign Bit
+                                 .equ	SREG_H	= 5	; Half Carry Flag
+                                 .equ	SREG_T	= 6	; Bit Copy Storage
+                                 .equ	SREG_I	= 7	; Global Interrupt Enable
+                                 
+                                 ; CLKMSR - Clock Main Settings Register
+                                 .equ	CLKMS0	= 0	; Clock Main Select Bit 0
+                                 .equ	CLKMS1	= 1	; Clock Main Select Bit 1
+                                 
+                                 ; CLKPSR - Clock Prescale Register
+                                 .equ	CLKPS0	= 0	; Clock Prescaler Select Bit 0
+                                 .equ	CLKPS1	= 1	; Clock Prescaler Select Bit 1
+                                 .equ	CLKPS2	= 2	; Clock Prescaler Select Bit 2
+                                 .equ	CLKPS3	= 3	; Clock Prescaler Select Bit 3
+                                 
+                                 ; OSCCAL - Oscillator Calibration Value
+                                 .equ	CAL0	= 0	; Oscillator Calibration Value Bit0
+                                 .equ	CAL1	= 1	; Oscillator Calibration Value Bit1
+                                 .equ	CAL2	= 2	; Oscillator Calibration Value Bit2
+                                 .equ	CAL3	= 3	; Oscillator Calibration Value Bit3
+                                 .equ	CAL4	= 4	; Oscillator Calibration Value Bit4
+                                 .equ	CAL5	= 5	; Oscillator Calibration Value Bit5
+                                 .equ	CAL6	= 6	; Oscillator Calibration Value Bit6
+                                 .equ	CAL7	= 7	; Oscillator Calibration Value Bit7
+                                 
+                                 ; SMCR - Sleep Mode Control Register
+                                 .equ	SE	= 0	; Sleep Enable
+                                 .equ	SM0	= 1	; Sleep Mode Select Bit 0
+                                 .equ	SM1	= 2	; Sleep Mode Select Bit 1
+                                 .equ	SM2	= 3	; Sleep Mode Select Bit 2
+                                 
+                                 ; PRR - Power Reduction Register
+                                 .equ	PRTIM0	= 0	; Power Reduction Timer/Counter0
+                                 .equ	PRADC	= 1	; Power Reduction ADC
+                                 
+                                 ; VLMCSR - Vcc Level Monitoring Control and Status Register
+                                 .equ	VLM0	= 0	; Trigger Level of Voltage Level Monitor bit 0
+                                 .equ	VLM1	= 1	; Trigger Level of Voltage Level Monitor bit 1
+                                 .equ	VLM2	= 2	; Trigger Level of Voltage Level Monitor bit 2
+                                 .equ	VLMIE	= 6	; VLM Interrupt Enable
+                                 .equ	VLMF	= 7	; VLM Flag
+                                 
+                                 ; RSTFLR - Reset Flag Register
+                                 .equ	PORF	= 0	; Power-on Reset Flag
+                                 .equ	EXTRF	= 1	; External Reset Flag
+                                 .equ	WDRF	= 3	; Watchdog Reset Flag
+                                 
+                                 ; NVMCSR - Non-Volatile Memory Control and Status Register
+                                 .equ	NVMBSY	= 7	; Non-Volatile Memory Busy
+                                 
+                                 ; NVMCMD - Non-Volatile Memory Command
+                                 .equ	NVMCMD0	= 0	; 
+                                 .equ	NVMCMD1	= 1	; 
+                                 .equ	NVMCMD2	= 2	; 
+                                 .equ	NVMCMD3	= 3	; 
+                                 .equ	NVMCMD4	= 4	; 
+                                 .equ	NVMCMD5	= 5	; 
+                                 
+                                 
+                                 ; ***** PORTB ************************
+                                 ; PORTCR - Port Control Register
+                                 .equ	BBMB	= 1	; Break-Before-Make Mode Enable
+                                 
+                                 ; PUEB - Pull-up Enable Control Register
+                                 .equ	PUEB0	= 0	; 
+                                 .equ	PUEB1	= 1	; 
+                                 .equ	PUEB2	= 2	; 
+                                 .equ	PUEB3	= 3	; 
+                                 
+                                 ; PORTB - Input Pins, Port B
+                                 .equ	PORTB0	= 0	; 
+                                 .equ	PB0	= 0	; For compatibility
+                                 .equ	PORTB1	= 1	; 
+                                 .equ	PB1	= 1	; For compatibility
+                                 .equ	PORTB2	= 2	; 
+                                 .equ	PB2	= 2	; For compatibility
+                                 .equ	PORTB3	= 3	; 
+                                 .equ	PB3	= 3	; For compatibility
+                                 
+                                 ; DDRB - Data Direction Register, Port B
+                                 .equ	DDB0	= 0	; 
+                                 .equ	DDB1	= 1	; 
+                                 .equ	DDB2	= 2	; 
+                                 .equ	DDB3	= 3	; 
+                                 
+                                 ; PINB - Port B Data register
+                                 .equ	PINB0	= 0	; 
+                                 .equ	PINB1	= 1	; 
+                                 .equ	PINB2	= 2	; 
+                                 .equ	PINB3	= 3	; 
+                                 
+                                 
+                                 ; ***** EXTERNAL_INTERRUPT ***********
+                                 ; EICRA - External Interrupt Control Register A
+                                 .equ	ISC00	= 0	; Interrupt Sense Control 0 Bit 0
+                                 .equ	ISC01	= 1	; Interrupt Sense Control 0 Bit 1
+                                 
+                                 ; EIMSK - External Interrupt Mask register
+                                 .equ	INT0	= 0	; External Interrupt Request 0 Enable
+                                 
+                                 ; EIFR - External Interrupt Flag register
+                                 .equ	INTF0	= 0	; External Interrupt Flag 0
+                                 
+                                 ; PCICR - Pin Change Interrupt Control Register
+                                 .equ	PCIE0	= 0	; Pin Change Interrupt Enable 0
+                                 
+                                 ; PCIFR - Pin Change Interrupt Flag Register
+                                 .equ	PCIF0	= 0	; Pin Change Interrupt Flag 0
+                                 
+                                 ; PCMSK - Pin Change Mask Register
+                                 .equ	PCINT0	= 0	; Pin Change Enable Mask 0
+                                 .equ	PCINT1	= 1	; Pin Change Enable Mask 1
+                                 .equ	PCINT2	= 2	; Pin Change Enable Mask 2
+                                 .equ	PCINT3	= 3	; Pin Change Enable Mask 3
+                                 
+                                 
+                                 ; ***** TIMER_COUNTER_0 **************
+                                 ; TCCR0A - Timer/Counter 0 Control Register A
+                                 .equ	WGM00	= 0	; Waveform Generation Mode
+                                 .equ	WGM01	= 1	; Waveform Generation Mode
+                                 .equ	COM0B0	= 4	; Compare Output Mode for Channel B bit 0
+                                 .equ	COM0B1	= 5	; Compare Output Mode for Channel B bit 1
+                                 .equ	COM0A0	= 6	; Compare Output Mode for Channel A bit 0
+                                 .equ	COM0A1	= 7	; Compare Output Mode for Channel A bit 1
+                                 
+                                 ; TCCR0B - Timer/Counter 0 Control Register B
+                                 .equ	CS00	= 0	; Clock Select
+                                 .equ	CS01	= 1	; Clock Select
+                                 .equ	CS02	= 2	; Clock Select
+                                 .equ	WGM02	= 3	; Waveform Generation Mode
+                                 .equ	WGM03	= 4	; Waveform Generation Mode
+                                 .equ	ICES0	= 6	; Input Capture Edge Select
+                                 .equ	ICNC0	= 7	; Input Capture Noise Canceler
+                                 
+                                 ; TCCR0C - Timer/Counter 0 Control Register C
+                                 .equ	FOC0B	= 6	; Force Output Compare for Channel B
+                                 .equ	FOC0A	= 7	; Force Output Compare for Channel A
+                                 
+                                 ; TIMSK0 - Timer Interrupt Mask Register 0
+                                 .equ	TOIE0	= 0	; Overflow Interrupt Enable
+                                 .equ	OCIE0A	= 1	; Output Compare A Match Interrupt Enable
+                                 .equ	OCIE0B	= 2	; Output Compare B Match Interrupt Enable
+                                 .equ	ICIE0	= 5	; Input Capture Interrupt Enable
+                                 
+                                 ; TIFR0 - Overflow Interrupt Enable
+                                 .equ	TOV0	= 0	; Timer Overflow Flag
+                                 .equ	OCF0A	= 1	; Timer Output Compare Flag 0A
+                                 .equ	OCF0B	= 2	; Timer Output Compare Flag 0B
+                                 .equ	ICF0	= 5	; Input Capture Flag
+                                 
+                                 ; GTCCR - General Timer/Counter Control Register
+                                 .equ	PSR	= 0	; Prescaler Reset
+                                 .equ	TSM	= 7	; Timer Synchronization Mode
+                                 
+                                 
+                                 ; ***** WATCHDOG *********************
+                                 ; WDTCSR - Watchdog Timer Control and Status Register
+                                 .equ	WDP0	= 0	; Watch Dog Timer Prescaler bit 0
+                                 .equ	WDP1	= 1	; Watch Dog Timer Prescaler bit 1
+                                 .equ	WDP2	= 2	; Watch Dog Timer Prescaler bit 2
+                                 .equ	WDE	= 3	; Watch Dog Enable
+                                 .equ	WDP3	= 5	; Watchdog Timer Prescaler Bit 3
+                                 .equ	WDIE	= 6	; Watchdog Timer Interrupt Enable
+                                 .equ	WDIF	= 7	; Watchdog Timer Interrupt Flag
+                                 
+                                 
+                                 
+                                 ; ***** LOCKSBITS ********************************************************
+                                 .equ	LB1	= 0	; Lockbit
+                                 .equ	LB2	= 1	; Lockbit
+                                 
+                                 
+                                 ; ***** FUSES ************************************************************
+                                 ; BYTE0 fuse bits
+                                 .equ	RSTDISBL	= 0	; Disable external reset
+                                 .equ	WDTON	= 1	; Watch dog timer always on
+                                 .equ	CKOUT	= 2	; Output external clock
+                                 
+                                 
+                                 
+                                 ; ***** CPU REGISTER DEFINITIONS *****************************************
+                                 .def	XH	= r27
+                                 .def	XL	= r26
+                                 .def	YH	= r29
+                                 .def	YL	= r28
+                                 .def	ZH	= r31
+                                 .def	ZL	= r30
+                                 
+                                 
+                                 
+                                 ; ***** DATA MEMORY DECLARATIONS *****************************************
+                                 .equ	FLASHEND	= 0x01ff	; Note: Word address
+                                 .equ	IOEND	= 0x003f
+                                 .equ	SRAM_START	= 0x0040
+                                 .equ	SRAM_SIZE	= 32
+                                 .equ	RAMEND	= 0x005f
+                                 .equ	XRAMEND	= 0x0000
+                                 .equ	E2END	= 0x0000
+                                 .equ	EEPROMEND	= 0x0000
+                                 
+                                 ; ***** MEMORY MAPPED NVM ************************************************
+                                 .equ	MAPPED_FLASH_START	= 0x4000
+                                 .equ	MAPPED_LOCKBITS_0	= 0x3f00
+                                 .equ	MAPPED_CONFIG_0	= 0x3f40
+                                 .equ	MAPPED_CALIB_0	= 0x3f80
+                                 .equ	MAPPED_SIGN_0	= 0x3fc0
+                                 .equ	MAPPED_SIGN_1	= 0x3fc1
+                                 .equ	MAPPED_SIGN_2	= 0x3fc2
+                                 .equ	MAPPED_FLASH_SIZE	= 0x0400
+                                 .equ	MAPPED_FLASH_END	= 0x43ff
+                                 #pragma AVRPART MEMORY PROG_FLASH 1024
+                                 #pragma AVRPART MEMORY EEPROM 0
+                                 #pragma AVRPART MEMORY INT_SRAM SIZE 32
+                                 #pragma AVRPART MEMORY INT_SRAM START_ADDR 0x40
+                                 
+                                 
+                                 
+                                 ; ***** BOOTLOADER DECLARATIONS ******************************************
+                                 .equ	PAGESIZE	= 16
+                                 
+                                 
+                                 
+                                 ; ***** INTERRUPT VECTORS ************************************************
+                                 .equ	INT0addr	= 0x0001	; External Interrupt Request 0
+                                 .equ	PCI0addr	= 0x0002	; Pin Change Interrupt Request 0
+                                 .equ	ICP0addr	= 0x0003	; Timer/Counter0 Input Capture
+                                 .equ	OVF0addr	= 0x0004	; Timer/Counter0 Overflow
+                                 .equ	OC0Aaddr	= 0x0005	; Timer/Counter Compare Match A
+                                 .equ	OC0Baddr	= 0x0006	; Timer/Counter Compare Match B
+                                 .equ	ACIaddr	= 0x0007	; Analog Comparator
+                                 .equ	WDTaddr	= 0x0008	; Watchdog Time-out
+                                 .equ	VLMaddr	= 0x0009	; Vcc Voltage Level Monitor
+                                 .equ	ADCCaddr	= 0x000a	; ADC Conversion Complete
+                                 
+                                 .equ	INT_VECTORS_SIZE	= 11	; size in words
+                                 
+                                 #pragma AVRPART CORE INSTRUCTIONS_NOT_SUPPORTED break
+                                 
+                                 #endif  /* _TN10DEF_INC_ */
+                                 
+                                 ; ***** END OF FILE ******************************************************
+                                 
+                                 ; beckerlight.asm
+                                 ;
+                                 ; Created: 17/06/2022 08:24:54
+                                 ; Author : Manama
+                                 ;
+                                 
+                                 
+                                 ; Created: 17/05/2022 19:21:34
+                                 ; Author : Manama
+                                 ; data order green red blue
+                                 ; RHS signal lamp - clockwise - left to rhs sequence , cycle balanced to match lhs signal at the time of hazard operation
+                                 
+                                 
+                                 ;pb0 dataout
+                                 ;
+                                 .def data = r19
+                                 
+                                 .macro set_pointer
+                                 ldi ZL,low((2*@0)+0x4000)
+                                 ldi ZH,high((2*@0)+0x4000)
+                                 .endm 
+                                  
+                                 
+                                 
+                                 .dseg
+                                 
+000040                           pad1: .byte 1
+000041                           pad2: .byte 1
+                                 
+                                 
+                                 
+                                 .cseg
+                                 
+                                 
+                                 reset:
+000000 ed08                          LDI r16,0xD8		;setting clock divider change enable
+000001 bf0c                      	OUT CCP,r16
+000002 e000                      	LDI r16,0x00		; selecting internal 8MHz oscillator
+000003 bf07                      	OUT CLKMSR, r16
+000004 ed08                      	LDI r16,0xD8		; setting clock divider change enable
+000005 bf0c                      	OUT CCP,r16	
+000006 e000                      	LDI r16,(0<<CLKPS3)+(0<<CLKPS2)+(0<<CLKPS1)+(0<<CLKPS0);
+000007 bf06                      	OUT CLKPSR,r16		; set to 8MHz clock (disable div8)
+000008 ef0f                      	LDI r16,0xFF		; overclock (from 4MHz(0x00) to 15 MHz(0xFF))
+000009 bf09                      	OUT OSCCAL,r16
+                                 portsetup:
+00000a e001                      	ldi r16,0b0001		; load r16 with 0x1
+00000b b901                      	out ddrb,r16		; enable pb0 as output
+00000c e000                      	ldi r16,0b0000		; load r16 0x00
+00000d b902                      	out portb,r16		; port b low (0v)
+00000e d032                      	rcall LED_RESET		;put data line low,positive edge is the main factor
+                                 mainloop:
+00000f d05a                      	rcall audi1			;routine that lights up each led one by one until all LEDS are lit like a audi car indicator
+                                 ;	rcall delay1		;761 cycles delay
+                                 ;	rcall delay2		;251 cycles delay
+                                 ;	nop					;1 cycle
+                                 ;	nop					;1 cycle = total cycles till here 7627792 . this 1017 cycles added to synchronise with LHS signal which consumes 7627792 cycles to complete audi loop. will be unsynced in hazard operation.
+000010 936f                      	push r22			; save r22 to stack
+000011 ef6f                      	ldi r22,255			; load 255 for delay routine
+000012 d047                      	rcall delayms		; gives 331ms delay
+000013 ec68                      	ldi r22,200			; load 255 for delay routine,5
+000014 d045                      	rcall delayms		; gives 331ms delay
+000015 916f                      	pop r22				; restore r22
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
+000016 d082                      	rcall dblackout		;proc to kill the light for 331ms
+                                 ;	push r22			;
+                                 ;	ldi r22,255			;
+                                 ;	rcall delayms		;331ms   
+                                 ;	pop r22				;
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+000017 d087                      	rcall audi			;routine that lights up each led one by one until all LEDS are lit like a audi car indicator
+000018 936f                      	push r22			; save r22 to stack
+000019 ef6f                      	ldi r22,255			; load 255 for delay routine
+00001a d03f                      	rcall delayms		; gives 331ms delay
+00001b ec68                      	ldi r22,200			; load 255 for delay routine
+00001c d03d                      	rcall delayms		; gives 331ms delay
+00001d 916f                      	pop r22				; restore r22
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+00001e d07a                      	rcall dblackout		;added on 10-06-22 for testing not needed on vehicle if connected from flasher relay output/flashing output
+                                 ;	push r22			;added on 10-06-22 for testing not needed on vehicle if connected from flasher relay output/flashing output
+                                 ;	ldi r22,255			;added on 10-06-22 for testing not needed on vehicle if connected from flasher relay output/flashing output
+                                 ;	rcall delayms		;331ms   added on 10-06-22 for testing not needed on vehicle if connected from flasher relay output/flashing output
+                                 ;	pop r22				;added on 10-06-22 for testing not needed on vehicle if connected from flasher relay output/flashing output
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+00001f d0b6                      	rcall coloursend
+000020 d0db                      	rcall flasher
+000021 d0da                      	rcall flasher
+000022 d0d9                      	rcall flasher
+000023 d05b                      	rcall blackout
+000024 d0c2                      	rcall init_colour
+000025 d10c                      	rcall glow
+000026 d0e7                      	rcall fade
+000027 d10a                      	rcall glow
+000028 d0e5                      	rcall fade
+000029 d108                      	rcall glow
+00002a d0e3                      	rcall fade
+00002b d106                      	rcall glow
+00002c d0e1                      	rcall fade
+00002d d104                      	rcall glow
+00002e d0df                      	rcall fade
+00002f d102                      	rcall glow
+000030 d0dd                      	rcall fade
+000031 d14b                      	rcall rotate
+000032 d14a                      	rcall rotate
+000033 d149                      	rcall rotate
+000034 cfda                      	rjmp mainloop
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;Transmits 1 byte to the led matrix ,call 3 times for 1 led to transmit g,r,b data
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 bytetx:
+000035 e018                      	ldi r17,8			; number of bits 8
+                                 loop0:
+000036 9a10                      	sbi portb,0			; set pb0 high
+000037 0000                      	nop					; 417ns = 0
+000038 fd37                      	sbrc data,7			; if bit to be transmitted at position 7 is 0 skip next instruction of calling additional delay
+000039 d006                      	rcall ten66ns		; 1us = 1 (if bit 7 is 1 this instruction is executed and total delay of 1us for data to stay high)
+00003a 0f33                      	lsl data			; shift data out as we transmitted equalent pulse tp LED
+00003b 9810                      	cbi portb,0			; pull pb0 low
+00003c d003                      	rcall ten66ns		; 1us = off time
+00003d 951a                      	dec r17				; decrease bit counter
+00003e f7b9                      	brne loop0			; loop back until counter is 0
+00003f 9508                      	ret					; return to caller
+                                 
+                                 
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;10 nano seconds delay
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 	
+                                 ten66ns:
+000040 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;the ws2812 reset procedure
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 
+                                 LED_RESET:					;66us
+000041 9810                      	cbi portb,0
+000042 ef0f                      	ldi r16,255
+                                 loop1:
+000043 950a                      	dec r16
+000044 f7f1                      	brne loop1
+000045 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;delay routine
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 delay:
+000046 930f                      	push r16
+000047 ef0a                      	ldi r16,250
+000048 d004                      	rcall delay1
+000049 950a                      dd:	dec r16
+00004a f7f1                      	brne dd
+00004b 910f                      	pop r16
+00004c 9508                      	ret
+                                 
+                                 delay1:
+00004d 934f                      	push r20
+00004e ef4a                      	ldi r20,250
+00004f 954a                      ddd:dec r20
+000050 f7f1                      	brne ddd
+000051 914f                      	pop r20
+000052 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ; 1 milli second delay routine
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ms1:
+000053 930f                      	push r16
+000054 e00a                      	ldi r16,10
+                                 msloop:
+000055 dff0                      	rcall delay
+000056 950a                      	dec r16
+000057 f7e9                      	brne msloop
+000058 910f                      	pop r16
+000059 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 delayms:
+                                 ;	ldi r22,16
+                                 delaymsloop:
+00005a dff8                      	rcall ms1
+00005b 956a                      	dec r22
+00005c f7e9                      	brne delaymsloop
+00005d 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ms500:
+00005e 936f                      	push r22			; save r22 to stack
+00005f ef6f                      	ldi r22,255			; load 255 for delay routine
+000060 dff9                      	rcall delayms		; gives 331ms delay
+000061 ec68                      	ldi r22,200			; load 255 for delay routine,5
+000062 dff7                      	rcall delayms		; gives 331ms delay
+000063 916f                      	pop r22				; restore r22
+000064 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ms20:
+000065 936f                      	push r22				;save r22 for delay
+000066 e164                      	ldi r22,20		        ;load delay count
+000067 dff2                      	rcall delayms			;20.4ms for value 16 on logic analyzer
+000068 916f                      	pop r22					;restore r22
+000069 9508                      	ret
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;RHS indicator lamp flash routine - leds sequence from lhs to Rhs / clockwise
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 
+                                 audi1:
+00006a e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+00006b e051                      	ldi r21,1				;load r21 with 1 (1st step ,will be increased by audiloop, max out at 24 steps for each led)
+                                 audiloop1:
+00006c d01f                      	rcall sendorange		;procedure to light up led with orange colour (car signal is yelow/orange)
+00006d 9563                      	inc r22					;r22 is loop counter from 0 -24
+00006e 1765                      	cp r22,r21				;check if r22 has looped the amount stored in r21 (if r21 is 1 ,1 led is lit , if 2 ,2 led lit)
+00006f f7e1                      	brne audiloop1			;if r22 not equal to no of steps in r21 loop again
+000070 e168                      	ldi r22,24				;reach here when number of leds specified in r21 has already lit up (the remining leds need to be off)
+000071 1b65                      	sub r22,r21				;subtract r22 with r21 the remaining number is the off leds
+000072 f019                      	breq alllit				;if r22 = r21 all leds are lit so branch to alllit label
+                                 blackloop:
+000073 d011                      	rcall sendblack			;send off frame to one led
+000074 956a                      	dec r22					;decrease r22
+000075 f7e9                      	brne blackloop			;loop till all remaining leds rae sent 0x00,0x00,0x00 frame
+                                 alllit:
+000076 dfca                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000077 936f                      	push r22				;save r22 for delay
+000078 e164                      	ldi r22,20		        ;load delay count
+000079 dfe0                      	rcall delayms			;20.4ms for value 16 on logic analyzer
+00007a 916f                      	pop r22					;restore r22
+00007b 9553                      	inc r21					;increase to be lighted led count by 1
+00007c 954a                      	dec r20					;decrease led count as each led is lit up (used as condition check, al 24 leds lit up r20 =0)
+00007d f771                      	brne audiloop1			; loop back till r20 = 0	
+00007e 9508                      	ret						; return to caller
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;this procedure sends 24 off frames to each led to switch the entire indicator off , needed on continous power supply only
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 blackout:
+00007f e148                      	ldi r20,24				;load r20 with # of LEDs , here 24 leds on the ring from aliexpress
+                                 boloop:
+000080 d004                      	rcall sendblack			;call procedure to send 0s to all colours in each led 0x00,0x00,0x00
+000081 954a                      	dec r20					;decrease led counter
+000082 f7e9                      	brne boloop				;loop back till 24 sets are sent
+000083 dfbd                      	rcall LED_RESET			;sent led reset at the ned to latch sent data
+000084 9508                      	ret						;return to caller
+                                 	
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;sends 0x00,0x00,0x00 to led to make it off
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;	
+                                 sendblack:
+000085 e030                      	ldi data,0 ;green
+000086 dfae                      	rcall bytetx
+000087 e030                      	ldi data,0 ;red
+000088 dfac                      	rcall bytetx
+000089 e030                      	ldi data,0 ;blue
+00008a dfaa                      	rcall bytetx
+00008b 9508                      	ret
+                                 
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;sends colour data to led ,3 bytes , call as many times as many leds
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 sendorange:
+00008c e332                      	ldi data,50 ;green
+00008d dfa7                      	rcall bytetx
+00008e ef3f                      	ldi data,255 ;red
+00008f dfa5                      	rcall bytetx
+000090 e030                      	ldi data,0
+000091 dfa3                      	rcall bytetx
+000092 9508                      	ret
+                                 
+                                 delay2:
+000093 934f                      	push r20
+000094 e541                      	ldi r20,81
+000095 954a                      ddd2:dec r20
+000096 f7f1                      	brne ddd2
+000097 914f                      	pop r20
+000098 9508                      	ret
+                                 dblackout:
+000099 dfe5                      rcall blackout		;proc to kill the light for 331ms
+00009a 936f                      	push r22			;
+00009b ef6f                      	ldi r22,255			;
+00009c dfbd                      	rcall delayms		;331ms   
+00009d 916f                      	pop r22		
+00009e 9508                      	ret
+                                 
+                                 
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 ;LHS indicator lamp flash routine - leds sequence from rhs to lhs /anti clockwise
+                                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                 
+                                 audi:
+00009f e148                      	ldi r20,24			;load r20 with # of LEDs , tested with 24 led ring
+0000a0 e051                      	ldi r21,1			;load r21 with 1 (1st step ,will be increased by audiloop, max out at 24 steps for each led)
+0000a1 e168                      	ldi r22,24			;load r22 with # of leds , tested with 24 led ring
+                                 audiloop:
+0000a2 3159                      	cpi r21,25			;check r21 reached 25th step (means 24 steps finished for 24 leds and all leds light up)
+0000a3 f089                      	breq allon			;if all 24 steps are finished branch to allon to exit procedure
+0000a4 3158                      	cpi r21,24			;check if r21 is on the 24th step, the last step has no unlit leds so no need blank procedure
+0000a5 f021                      	breq orangeloop		;branch to orangeloop , override sendblack as all leds are to be litup in the 24th step
+0000a6 dfde                      	rcall sendblack		;1st step to 23rd step needs this procedure to keep leds off in the range of 23 - 1
+0000a7 956a                      	dec r22				;decrease r22 (step counter)
+0000a8 1765                      	cp r22,r21			;check whether step counter has performed enough black frames
+0000a9 f7c1                      	brne audiloop		;if required number of blank steps has not been performed loop back
+                                 orangeloop:
+0000aa dfe1                      	rcall sendorange	;call procedure to light up the LED in orange colour
+0000ab 956a                      	dec r22				;dec step counter
+0000ac f7e9                      	brne orangeloop		;if steps not exhausted loop through orangeloop
+0000ad df93                      	rcall LED_RESET		;if all 24 steps have finished perform LED_RESET to latch data
+0000ae 936f                      	push r22			;save r22 for delay routine
+0000af e164                      	ldi r22,20           ; 16 ,now increased to 20 for more delay
+0000b0 dfa9                      	rcall delayms		;20.4ms for value 16 on logic analyzer
+0000b1 916f                      	pop r22				;restore r22 after delay proc
+0000b2 9553                      	inc r21				;increase led counter
+0000b3 e168                      	ldi r22,24			;reload the step counter
+0000b4 cfed                      	rjmp audiloop		;jump back to audiloop
+                                 allon:					; return to caller when all 24 leds are lit
+0000b5 9508                      	ret
+                                 
+                                 white:
+0000b6 e634                      	ldi data,100 ;green
+0000b7 df7d                      	rcall bytetx
+0000b8 e634                      	ldi data,100 ;red
+0000b9 df7b                      	rcall bytetx
+0000ba e634                      	ldi data,100	;blue
+0000bb df79                      	rcall bytetx
+0000bc 9508                      	ret
+                                 /*	
+                                 colourinit:
+                                 	ld r23,Z+
+                                 	ld r24,Z+
+                                 	ld r25,Z+
+                                 	ret
+                                 */ /*
+                                 colourarray:
+                                 	mov data,r23 ;green
+                                 	rcall bytetx
+                                 	mov data,r24 ;red
+                                 	rcall bytetx
+                                 	mov data,r25	;blue
+                                 	rcall bytetx
+                                 	ret
+                                 */
+                                 fadearray:
+0000bd 2f37                      	mov data,r23 ;green
+0000be df76                      	rcall bytetx
+0000bf 2f38                      	mov data,r24 ;red
+0000c0 df74                      	rcall bytetx
+0000c1 2f39                      	mov data,r25	;blue
+0000c2 df72                      	rcall bytetx
+0000c3 9508                      	ret
+                                 
+                                 fadecalc:
+0000c4 d022                      	rcall init_colour
+                                 mainstep:
+0000c5 9171                      	ld r23,z+
+0000c6 9181                      	ld r24,z+
+0000c7 9191                      	ld r25,z+
+0000c8 9508                      	ret
+                                 innercalc:
+0000c9 3070                      	cpi r23,0x00
+0000ca f429                      	brne greenreg
+                                 ent1:
+0000cb 3080                      	cpi r24,0x00
+0000cc f429                      	brne redreg
+                                 ent2:
+0000cd 3090                      	cpi r25,0x00
+0000ce f429                      	brne bluereg
+0000cf 9508                      	ret
+                                 
+                                 greenreg:
+0000d0 5075                      	subi r23,5
+0000d1 cff9                      	rjmp ent1
+                                 redreg:
+0000d2 5085                      	subi r24,5
+0000d3 cff9                      	rjmp ent2
+                                 bluereg:
+0000d4 5095                      	subi r25,5
+0000d5 9508                      	ret
+                                 
+                                 
+                                 
+                                 coloursend:
+0000d6 d010                      	rcall init_colour
+0000d7 e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+0000d8 e053                      	ldi r21,3				;load r21 with 3
+                                 colourloop1:
+0000d9 e148                      	ldi r20,24
+0000da d009                      	rcall addresscolour
+0000db dfe9                      	rcall mainstep
+                                 colourloop2:
+0000dc dfe0                      	rcall fadearray		;procedure to light up led with orange colour (car signal is yelow/orange)
+0000dd 954a                      	dec r20
+0000de f7e9                      	brne colourloop2		;if r22 not equal to no of steps in r21 loop again
+0000df df61                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0000e0 df7d                      	rcall ms500
+0000e1 955a                      	dec r21
+0000e2 f7b1                      	brne colourloop1	
+0000e3 9508                      	ret						; return to caller
+                                 addresscolour:
+0000e4 5fed                      	subi ZL,low(-3)
+0000e5 4fff                      	sbci ZH,high(-3)
+0000e6 9508                      	ret
+                                 init_colour:
+0000e7 ede4                      	ldi ZL,low((2*colour)+0x4000)	
+0000e8 e4f1                      	ldi ZH,high((2*colour)+0x4000)
+0000e9 9508                      	ret	
+                                 colour:
+                                 ;.db 0xff,0x00,0x00,0x1,0x00,0x00,0x00,0xff,0x00,0x00,0x01,0x00,0x00,0x00,0xff,0x00,0x00,0x01,0xff,0xff,0x00,0x01,0x01,0x00,0x00,0xff,0xff,0x00,0x01,0x01,0xff,0x00,0xff,0x01,0x00,0x01
+0000ea 0001
+0000eb ff00
+0000ec 0000
+0000ed 0100
+0000ee 0000
+0000ef 00ff
+0000f0 0000
+0000f1 0001
+0000f2 ff00
+0000f3 0101
+0000f4 ff00
+0000f5 00ff
+0000f6 0100
+0000f7 0001
+0000f8 ffff
+0000f9 0001
+0000fa ff01
+0000fb ff00                      .db 0x1,0x00,0x00,0xff,0x00,0x00,0x00,0x01,0x00,0x00,0xff,0x00,0x00,0x00,0x01,0x00,0x00,0xff,0x01,0x01,0x00,0xff,0xff,0x00,0x00,0x01,0x01,0x00,0xff,0xff,0x01,0x00,0x01,0xff,0x00,0xff
+                                 flasher:
+0000fc e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+0000fd e056                      	ldi r21,6				;load r21 with 1 (1st step ,will be increased by audiloop, max out at 24 steps for each led)
+                                 flashloop1:
+0000fe e148                      	ldi r20,24
+                                 flashloop2:
+0000ff dfb6                      	rcall white				;procedure to light up led with orange colour (car signal is yelow/orange)
+000100 954a                      	dec r20
+000101 f7e9                      	brne flashloop2			;if r22 not equal to no of steps in r21 loop again
+000102 df3e                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000103 df61                      	rcall ms20
+000104 df7a                      	rcall blackout
+000105 df5f                      	rcall ms20
+000106 955a                      	dec r21
+000107 f7b1                      	brne flashloop1	
+000108 e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+                                 flashloop3:
+000109 dfac                      	rcall white				;procedure to light up led with orange colour (car signal is yelow/orange)
+00010a 954a                      	dec r20
+00010b f7e9                      	brne flashloop3			;if r22 not equal to no of steps in r21 loop again
+00010c df34                      	rcall LED_RESET			;send LED_RESET to latch data , 
+00010d 9508                      	ret						; return to caller
+                                 
+                                 
+                                 fade:
+                                 ;	rcall init_colour
+00010e e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+00010f e0b6                      	ldi r27,6
+000110 e354                      	ldi r21,52				;load r21 with 1 (1st step ,will be increased by audiloop, max out at 24 steps for each led)
+                                 step:
+000111 dfb3                      	rcall mainstep
+                                 fadeloop1:
+000112 e148                      	ldi r20,24
+000113 dfb5                      	rcall innercalc			;procedure to light up led with orange colour (car signal is yelow/orange)
+                                 fadeloop2:
+000114 dfa8                      	rcall fadearray
+000115 954a                      	dec r20
+000116 f7e9                      	brne fadeloop2		;if r22 not equal to no of steps in r21 loop again
+000117 df29                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000118 df4c                      	rcall ms20
+000119 955a                      	dec r21
+00011a f7b9                      	brne fadeloop1
+                                 ;	dec r27
+                                 ;	brne step
+00011b 9508                      	ret						; return to caller
+                                 	
+                                 /*
+                                 glowarray:
+                                 	mov data,r23 ;green
+                                 	rcall bytetx
+                                 	mov data,r24 ;red
+                                 	rcall bytetx
+                                 	mov data,r25	;blue
+                                 	rcall bytetx
+                                 	ret
+                                 */
+                                 ;glowcalc:
+                                 ;	rcall init_colour1
+                                 ;	nop
+                                 /*	
+                                 glowstep:
+                                 	ld r23,z+
+                                 	ld r24,z+
+                                 	ld r25,z+
+                                 	ret
+                                 */
+                                 innercalc1:
+00011c 3070                      	cpi r23,0x00
+00011d f429                      	brne greenreg1
+                                 entry1:
+00011e 3080                      	cpi r24,0x00
+00011f f441                      	brne redreg1
+                                 entry2:
+000120 3090                      	cpi r25,0x00
+000121 f459                      	brne bluereg1
+000122 9508                      	ret
+                                 
+                                 greenreg1:
+000123 3f7f                      	cpi r23,0xff
+000124 f409                      	brne exit1
+000125 e070                      	ldi r23,0
+                                 exit1:
+000126 5f7b                      	subi r23,-5
+000127 cff6                      	rjmp entry1
+                                 redreg1:
+000128 3f7f                      	cpi r23,0xff
+000129 f409                      	brne exit2
+00012a e070                      	ldi r23,0
+                                 exit2:
+00012b 5f8b                      	subi r24,-5
+00012c cff3                      	rjmp entry2
+                                 bluereg1:
+00012d 3f7f                      	cpi r23,0xff
+00012e f409                      	brne exit3
+00012f e070                      	ldi r23,0
+                                 exit3:
+000130 5f9b                      	subi r25,-5
+000131 9508                      	ret
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 glow:
+                                 ;	rcall init_colour1
+000132 e148                      	ldi r20,24				;load r20 with # of LEDs , tested with 24 led ring
+000133 e0b6                      	ldi r27,6
+000134 e354                      	ldi r21,52				;load r21 with 1 (1st step ,will be increased by audiloop, max out at 24 steps for each led)
+                                 step1:
+000135 df8f                      	rcall mainstep
+                                 glowloop1:
+000136 e148                      	ldi r20,24
+000137 dfe4                      	rcall innercalc1			;procedure to light up led with orange colour (car signal is yelow/orange)
+                                 glowloop2:
+000138 df84                      	rcall fadearray
+000139 954a                      	dec r20
+00013a f7e9                      	brne glowloop2		;if r22 not equal to no of steps in r21 loop again
+00013b df05                      	rcall LED_RESET			;send LED_RESET to latch data , 
+00013c df28                      	rcall ms20
+00013d 955a                      	dec r21
+00013e f7b9                      	brne glowloop1
+                                 ;	dec r27
+                                 ;	brne step1
+00013f 9508                      	ret						; return to caller
+                                 	
+                                 /*
+                                 red:.db 0x00,0xff,0x00
+                                 green: .db 0xff,0x00,0x00
+                                 blue: .db 0x00,0x00,0xff
+                                 */
+                                 
+                                 
+                                 colour2:
+000140 ff00
+000141 0000
+000142 00ff
+000143 ff00
+000144 0000
+000145 00ff
+000146 00ff
+000147 ff00
+000148 0000
+000149 00ff
+00014a ff00
+00014b 0000
+00014c 00ff
+00014d ff00
+00014e 0000
+00014f 00ff
+000150 ff00
+000151 0000
+000152 00ff
+000153 ff00
+000154 0000                      .db 0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00
+000155 00ff
+000156 ff00
+000157 0000
+000158 00ff
+000159 ff00
+00015a 0000
+00015b 00ff
+00015c ff00
+00015d 0000
+00015e 00ff
+00015f ff00
+000160 0000
+000161 00ff
+000162 ff00
+000163 0000                      .db 0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00,0xff,0x00,0x00
+                                 ;total 72 bytes , 3bytes = 1 led
+                                 colour2pointer:
+000164 e8e0
+000165 e4f2                      set_pointer colour2
+000166 9508                      ret
+                                 	
+                                 step_0:
+000167 e148                      	ldi r20,24
+                                 step_1:
+000168 d00a                      	rcall transferarray
+000169 3458                      	cpi r21,72
+00016a f029                      	breq resetpointer
+                                 entry22:
+00016b 954a                      	dec r20
+00016c f7d9                      	brne step_1
+00016d dff6                      	rcall colour2pointer
+00016e 2755                      	clr r21
+00016f 9508                      	ret
+                                 
+                                 resetpointer:
+000170 dff3                      	rcall colour2pointer
+000171 2755                      	clr r21
+000172 cff8                      	rjmp entry22
+                                 	
+                                 
+                                 transferarray:
+000173 9131                      	ld data,Z+
+000174 9553                      	inc r21
+000175 debf                      	rcall bytetx
+000176 9131                      	ld data,Z+
+000177 9553                      	inc r21
+000178 debc                      	rcall bytetx
+000179 9131                      	ld data,Z+
+00017a 9553                      	inc r21
+00017b deb9                      	rcall bytetx
+00017c 9508                      	ret
+                                 rotate:
+00017d dfe6                      	rcall colour2pointer     ;macro
+00017e e050                      	ldi r21,0
+00017f dfe7                      	rcall step_0
+000180 dec0                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000181 dee3                      	rcall ms20
+000182 e456                      	ldi r21,70
+000183 d077                      	rcall addresscalc
+000184 dfe2                      	rcall step_0
+000185 debb                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000186 dede                      	rcall ms20
+000187 e453                      	ldi r21,67
+000188 d072                      	rcall addresscalc
+000189 dfdd                      	rcall step_0
+00018a deb6                      	rcall LED_RESET			;send LED_RESET to latch data , 
+00018b ded9                      	rcall ms20
+00018c e450                      	ldi r21,64
+00018d d06d                      	rcall addresscalc
+00018e dfd8                      	rcall step_0
+00018f deb1                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000190 ded4                      	rcall ms20
+000191 e35d                      	ldi r21,61
+000192 d068                      	rcall addresscalc
+000193 dfd3                      	rcall step_0
+000194 deac                      	rcall LED_RESET			;send LED_RESET to latch data , 
+000195 decf                      	rcall ms20
+000196 e35a                      	ldi r21,58
+000197 d063                      	rcall addresscalc
+000198 dfce                      	rcall step_0
+000199 dea7                      	rcall LED_RESET			;send LED_RESET to latch data , 
+00019a deca                      	rcall ms20
+00019b e357                      	ldi r21,55
+00019c d05e                      	rcall addresscalc
+00019d dfc9                      	rcall step_0
+00019e dea2                      	rcall LED_RESET			;send LED_RESET to latch data , 
+00019f dec5                      	rcall ms20
+0001a0 e354                      	ldi r21,52
+0001a1 d059                      	rcall addresscalc
+0001a2 dfc4                      	rcall step_0
+0001a3 de9d                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001a4 dec0                      	rcall ms20
+0001a5 e351                      	ldi r21,49
+0001a6 d054                      	rcall addresscalc
+0001a7 dfbf                      	rcall step_0
+0001a8 de98                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001a9 debb                      	rcall ms20
+0001aa e25e                      	ldi r21,46
+0001ab d04f                      	rcall addresscalc
+0001ac dfba                      	rcall step_0
+0001ad de93                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001ae deb6                      	rcall ms20
+0001af e25b                      	ldi r21,43
+0001b0 d04a                      	rcall addresscalc
+0001b1 dfb5                      	rcall step_0
+0001b2 de8e                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001b3 deb1                      	rcall ms20
+0001b4 e258                      	ldi r21,40
+0001b5 d045                      	rcall addresscalc
+0001b6 dfb0                      	rcall step_0
+0001b7 de89                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001b8 deac                      	rcall ms20
+0001b9 e255                      	ldi r21,37
+0001ba d040                      	rcall addresscalc
+0001bb dfab                      	rcall step_0
+0001bc de84                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001bd dea7                      	rcall ms20
+0001be e252                      	ldi r21,34
+0001bf d03b                      	rcall addresscalc
+0001c0 dfa6                      	rcall step_0
+0001c1 de7f                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001c2 dea2                      	rcall ms20
+0001c3 e15f                      	ldi r21,31
+0001c4 d036                      	rcall addresscalc
+0001c5 dfa1                      	rcall step_0
+0001c6 de7a                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001c7 de9d                      	rcall ms20
+0001c8 e15c                      	ldi r21,28
+0001c9 d031                      	rcall addresscalc
+0001ca df9c                      	rcall step_0
+0001cb de75                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001cc de98                      	rcall ms20
+0001cd e159                      	ldi r21,25
+0001ce d02c                      	rcall addresscalc
+0001cf df97                      	rcall step_0
+0001d0 de70                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001d1 de93                      	rcall ms20
+0001d2 e156                      	ldi r21,22
+0001d3 d027                      	rcall addresscalc
+0001d4 df92                      	rcall step_0
+0001d5 de6b                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001d6 de8e                      	rcall ms20
+0001d7 e153                      	ldi r21,19
+0001d8 d022                      	rcall addresscalc
+0001d9 df8d                      	rcall step_0
+0001da de66                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001db de89                      	rcall ms20
+0001dc e150                      	ldi r21,16
+0001dd d01d                      	rcall addresscalc
+0001de df88                      	rcall step_0
+0001df de61                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001e0 de84                      	rcall ms20
+0001e1 e05d                      	ldi r21,13
+0001e2 d018                      	rcall addresscalc
+0001e3 df83                      	rcall step_0
+0001e4 de5c                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001e5 de7f                      	rcall ms20
+0001e6 e05a                      	ldi r21,10
+0001e7 d013                      	rcall addresscalc
+0001e8 df7e                      	rcall step_0
+0001e9 de57                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001ea de7a                      	rcall ms20
+0001eb e057                      	ldi r21,7
+0001ec d00e                      	rcall addresscalc
+0001ed df79                      	rcall step_0
+0001ee de52                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001ef de75                      	rcall ms20
+0001f0 e054                      	ldi r21,4
+0001f1 d009                      	rcall addresscalc
+0001f2 df74                      	rcall step_0
+0001f3 de4d                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001f4 de70                      	rcall ms20
+0001f5 e051                      	ldi r21,1
+0001f6 d004                      	rcall addresscalc
+0001f7 df6f                      	rcall step_0
+0001f8 de48                      	rcall LED_RESET			;send LED_RESET to latch data , 
+0001f9 de6b                      	rcall ms20
+0001fa 9508                      	ret
+                                 
+                                 addresscalc:
+0001fb 27bb                      	clr r27
+0001fc 0fe5                      	add ZL,r21
+0001fd 1ffb                      	adc ZH,r27
+
+
+RESOURCE USE INFORMATION
+------------------------
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+"ATtiny10" register use summary:
+x  :   0 y  :   0 z  :   6 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
+r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  24 r17:   2 r18:   0 r19:  17 r20:  29 
+r21:  49 r22:  35 r23:  12 r24:   6 r25:   6 r26:   0 r27:   4 r28:   0 
+r29:   0 r30:   4 r31:   4 
+Registers used: 13 out of 35 (37.1%)
+
+"ATtiny10" instruction use summary:
+.lds.l:   0 .sts.l:   0 adc   :   1 add   :   1 and   :   0 andi  :   0 
+asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 brcc  :   0 
+brcs  :   0 breq  :   4 brge  :   0 brhc  :   0 brhs  :   0 brid  :   0 
+brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 brne  :  32 brpl  :   0 
+brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 
+bst   :   0 cbi   :   2 cbr   :   0 clc   :   0 clh   :   0 cli   :   0 
+cln   :   0 clr   :   3 cls   :   0 clt   :   0 clv   :   0 clz   :   0 
+com   :   0 cp    :   2 cpc   :   0 cpi   :  12 cpse  :   0 dec   :  22 
+eor   :   0 icall :   0 ijmp  :   0 in    :   0 inc   :   6 ld    :   6 
+ldd   :   0 ldi   :  88 lds   :   0 lsl   :   1 lsr   :   0 mov   :   3 
+neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   7 pop   :  11 
+push  :  11 rcall : 192 ret   :  34 reti  :   0 rjmp  :   7 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   1 sbi   :   1 sbic  :   0 sbis  :   0 
+sbr   :   0 sbrc  :   1 sbrs  :   0 sec   :   0 seh   :   0 sei   :   0 
+sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 sez   :   0 
+sleep :   0 st    :   0 std   :   0 sts   :   0 sub   :   1 subi  :   7 
+swap  :   0 tst   :   0 wdr   :   0 
+Instructions used: 26 out of 99 (26.3%)
+
+"ATtiny10" memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0003fe    914    108   1022    1024  99.8%
+[.dseg] 0x000040 0x000060      0      2      2      32   6.3%
+[.eseg] 0x000000 0x000000      0      0      0       0      -
+
+Assembly complete, 0 errors, 0 warnings
